@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="character-body">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <style th:inline="css">
+        html {
+            background-image: url([[${characterDB.originPlanet.image}]]);
+        }
+    </style>
+    <title>DragonBallIndex</title>
+</head>
+
+<body>
+    <header class="app-header">
+        <nav class="buttons">
+            <a href="http://localhost:9090/dragonball/character/random"><button class="select-button"> Try
+                    Random</button></a>
+            <a href="http://localhost:9090/"><button class="select-button">Inicio</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="name-characterR" th:text="${characterDB.name}"></h1>
+        <img class="imageDB" th:src="${characterDB.image}" th:alt="${characterDB.name}"
+            th:title="${characterDB.name}" />
+        <section class="character-info">
+            <table class="table-info-character">
+                <tbody>
+                    <tr>
+                        <td>Ki</td>
+                        <td th:text="${characterDB.ki}"></td>
+                    </tr>
+                    <tr>
+                        <td>Max ki</td>
+                        <td th:text="${characterDB.maxKi}"></td>
+                    </tr>
+                    <tr>
+                        <td>Raza/Race</td>
+                        <td th:text="${characterDB.race}"></td>
+                    </tr>
+                    <tr>
+                        <td>Affiliation</td>
+                        <td th:text="${characterDB.affiliation}"></td>
+                    </tr>
+                    <tr>
+                        <td>Origin Planet</td>
+                        <td th:text="${characterDB.originPlanet.name}"></td>
+                        <td class="image-cell"><img class="planet-table-img" th:src="${characterDB.originPlanet.image}"
+                                th:alt="${characterDB.originPlanet.name}" th:title="${characterDB.originPlanet.name}">
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

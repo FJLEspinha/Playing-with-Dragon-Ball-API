@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="body">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet">
+    <title>All-Characters</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="http://localhost:9090/"> <button class="select-button">Inicio</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="character-container" th:each="characterDB:${charactersDB}">
+                <!--  <button th:id="${characterDB.id}" th:value="*{characterDB.id}" th:onclick="@{getButton(${id})}" class="button-name-character" th:text="${characterDB.name}"></button>-->
+                <!-- <h3 class="name-character" th:text="${characterDB.id}"></h3>-->
+                <form th:action="@{/dragonball/getCharacter}" method="post">
+                    <input type="hidden" name="id" th:value="${characterDB.id}" />
+                    <button type="submit" class="button-name-character" th:text="${characterDB.name}"></button>
+                    <img class="character-image" th:src="${characterDB.image}">
+                </form>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

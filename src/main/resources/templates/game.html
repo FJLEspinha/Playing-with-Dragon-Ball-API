@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="character-body">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>DragonBall Game</title>
+</head>
+
+<body>
+    <nav class="buttons">
+        <a href="http://localhost:9090/"><button class="select-button">Inicio</button></a>
+    </nav>
+    <main>
+        <h1 class="title-team">Team 1</h1>
+        <div class="team1">
+            <div class="team1-card" th:each="team1:${team1}" th:data-value="${team1}" >
+                <h2 th:text="${team1.name}"></h2>
+                <img  class="team1-image" th:src="${team1.image}">
+                <h3 class="value-t1" th:text="'Ki base: '+ ${team1.ki}"  th:data-value="${team1.ki}" ></h3>
+               
+            </div>
+        </div>
+
+
+
+        <h1 class="title-team">Team 2</h1>
+        <div class="team2">
+            <div class="team2-card" th:each="team2:${team2}">
+                <h2 th:text="${team2.name}"></h2>
+                <img  class="team2-image" th:src="${team2.image}">
+
+                <h3 th:text="'Ki base: '+ ${team2.ki}"></h3>
+               
+            </div>
+        </div>
+
+
+        <div class="fight">
+            <form th:action="@{/dragonball/combat}" method="post">
+                <div th:each="team1, iterStat: ${team1}">
+                <input id="input1" type="hidden" name="team1" th:value="${team1.ki}">
+            </div>
+                <div th:each="team2, iterStat: ${team2}">
+                <input id="input2" type="hidden" name="team2" th:value="${team2.ki}">
+            </div>
+                <button type="submit" class="btn-fight">FIGHT</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

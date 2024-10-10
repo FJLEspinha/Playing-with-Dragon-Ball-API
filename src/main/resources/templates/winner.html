@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org" class="character-body">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <style th:inline="css">
+        html{
+            background-image: url("/images/fight.webp");
+           
+        }
+    </style>
+
+    <title>Team Winner</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="http://localhost:9090/"><button class="select-button">Inicio</button></a>
+        </nav>
+    </header>
+    <main >
+        <h1 th:text="${team[2]}" class="winner-title-page"></h1>
+       
+        <section class="content-table-winner">
+            <table class="table-result" >
+
+                    <caption class="table-title">Teams</caption>
+                    <tr>
+                        <td th:text="${team[0]}"></td>
+
+                        <td th:text="${team[1]}"></td>
+                    </tr>
+                    <tr>
+                        <td class="td-text-winner" colspan="2">You are the winner</td>
+                    </tr>
+                    <tr>
+                        <td th:text="${team[2]}"></td>
+                    </tr>
+                </table>
+            </section>
+      
+    </main>
+</body>
+
+</html>
