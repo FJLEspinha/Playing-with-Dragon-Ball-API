@@ -10,6 +10,10 @@ Framework **Spring Boot** utilizando el patrón de diseño **MVC**.
   
 ## A tener en cuenta  
 - El **puerto para uso local** es el **9090**. Se puede cambiar en el archivo application.properties.
-- la aplicación **no está terminada/perfilada**. Por ejemplo, falta algún botón, fondo para alguna página y, lo más importante, revisar el código para refactorizar y optimizar lo necesario.  
+- la aplicación **no está terminada/perfilada**. Por ejemplo, falta algún botón, fondo para alguna página y, lo más importante,   
+revisar el código para refactorizar y optimizar lo necesario. 
+- Como dependencias de Spring Boot se usan:   
+  - Spring Web
+  - Thymeleaf
  
 
